@@ -15,6 +15,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    final int MENU_COLOR_RED = 1;
+    final int MENU_COLOR_GREEN = 2;
+    final int MENU_COLOR_BLUE = 3;
+
+    final int MENU_SIZE_22 = 4;
+    final int MENU_SIZE_26 = 5;
+    final int MENU_SIZE_30 = 6;
+
     private TextView tv;
     private CheckBox chb;
     private TextView tvColor, tvSize;
@@ -34,14 +42,6 @@ public class MainActivity extends AppCompatActivity {
         registerForContextMenu(tvColor);
         registerForContextMenu(tvSize);
     }
-
-    final int MENU_COLOR_RED = 1;
-    final int MENU_COLOR_GREEN = 2;
-    final int MENU_COLOR_BLUE = 3;
-
-    final int MENU_SIZE_22 = 4;
-    final int MENU_SIZE_26 = 5;
-    final int MENU_SIZE_30 = 6;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
