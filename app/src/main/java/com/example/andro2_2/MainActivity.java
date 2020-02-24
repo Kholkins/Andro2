@@ -9,11 +9,15 @@ import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     final int MENU_COLOR_RED = 1;
     final int MENU_COLOR_GREEN = 2;
@@ -26,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private CheckBox chb;
     private TextView tvColor, tvSize;
+
+    LinearLayout llMain;
+    RadioGroup rgGravity;
+    EditText etName;
+    Button btnCreate;
+    Button btnClear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,5 +136,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
