@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
@@ -15,8 +17,17 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
     private Button btn1;
     private Button btn2;
 
-    LinearLayout.LayoutParams lParams1;
-    LinearLayout.LayoutParams lParams2;
+    private LinearLayout.LayoutParams lParams1;
+    private LinearLayout.LayoutParams lParams2;
+
+    // константы для ID пунктов меню
+    private final int MENU_ALPHA_ID = 1;
+    private final int MENU_SCALE_ID = 2;
+    private final int MENU_TRANSLATE_ID = 3;
+    private final int MENU_ROTATE_ID = 4;
+    private final int MENU_COMBO_ID = 5;
+
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +42,10 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
 
         lParams1 = (LinearLayout.LayoutParams) btn1.getLayoutParams();
         lParams2 = (LinearLayout.LayoutParams) btn2.getLayoutParams();
+
+        tv = (TextView) findViewById(R.id.tv);
+        // регистрируем контекстное меню для компонента tv
+        registerForContextMenu(tv);
     }
 
     public void goBack (View view) {
@@ -60,4 +75,23 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
     public void onStopTrackingTouch(SeekBar seekBar) {
 
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        // TODO Auto-generated method stub
+        switch (v.getId()) {
+            case R.id.tv:
+                // добавляем пункты
+                menu.add(0, MENU_ALPHA_ID, 0, "alpha");
+                menu.add(0, MENU_SCALE_ID, 0, "scale");
+                menu.add(0, MENU_TRANSLATE_ID, 0, "translate");
+                menu.add(0, MENU_ROTATE_ID, 0, "rotate");
+                menu.add(0, MENU_COMBO_ID, 0, "combo");
+                break;
+        }
+
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+
 }
