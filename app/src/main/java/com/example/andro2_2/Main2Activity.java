@@ -1,11 +1,15 @@
 package com.example.andro2_2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -93,5 +97,31 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
         super.onCreateContextMenu(menu, v, menuInfo);
     }
 
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        Animation anim = null;
+        // определяем какой пункт был нажат
+        switch (item.getItemId()) {
+            case MENU_ALPHA_ID:
+                // создаем объект анимации из файла anim/myalpha
+                anim = AnimationUtils.loadAnimation(this, R.anim.myalpha);
+                break;
+            case MENU_SCALE_ID:
+                anim = AnimationUtils.loadAnimation(this, R.anim.myscale);
+                break;
+            case MENU_TRANSLATE_ID:
+                anim = AnimationUtils.loadAnimation(this, R.anim.mytrans);
+                break;
+            case MENU_ROTATE_ID:
+                anim = AnimationUtils.loadAnimation(this, R.anim.myrotate);
+                break;
+            case MENU_COMBO_ID:
+                anim = AnimationUtils.loadAnimation(this, R.anim.mycombo);
+                break;
+        }
+        // запускаем анимацию для компонента tv
+        tv.startAnimation(anim);
 
+        return super.onContextItemSelected(item);
+    }
 }
