@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -139,6 +140,7 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,intent,PendingIntent.FLAG_CANCEL_CURRENT);
         builder
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_launcher_background);
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.ic_launcher_foreground));
     }
 }
