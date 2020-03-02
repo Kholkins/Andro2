@@ -142,6 +142,7 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setLargeIcon(BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.ic_launcher_foreground))
-                .setTicker("New notification");
+                .setTicker("New notification")
+                .setWhen(System.currentTimeMillis());
     }
 }
