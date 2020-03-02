@@ -145,6 +145,8 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
                 .setTicker("New notification")
                 .setWhen(System.currentTimeMillis())
                 .setAutoCancel(true)
-                .setContentTitle("Notification");
+                .setContentTitle("Notification")
+                .setContentText("Press it");
+
     }
 }
