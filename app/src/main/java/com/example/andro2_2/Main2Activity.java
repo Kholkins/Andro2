@@ -3,6 +3,8 @@ package com.example.andro2_2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -33,6 +35,8 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
 
     private TextView tv;
 
+    private NotificationManager nm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,8 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
         tv = (TextView) findViewById(R.id.tv);
         // регистрируем контекстное меню для компонента tv
         registerForContextMenu(tv);
+
+        nm = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     public void goBack (View view) {
@@ -123,5 +129,9 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
         tv.startAnimation(anim);
 
         return super.onContextItemSelected(item);
+    }
+
+    public void showNotification (View view){
+
     }
 }
