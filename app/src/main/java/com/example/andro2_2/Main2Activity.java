@@ -138,6 +138,7 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
         Intent intent = new Intent(getApplicationContext(), FinishActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,intent,PendingIntent.FLAG_CANCEL_CURRENT);
         builder
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.ic_launcher_background);
     }
 }
