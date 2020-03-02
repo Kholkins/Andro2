@@ -39,6 +39,7 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
     private TextView tv;
 
     private NotificationManager nm;
+    private final int NOTIFICATION_ID = 127;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +147,11 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
                 .setWhen(System.currentTimeMillis())
                 .setAutoCancel(true)
                 .setContentTitle("Notification")
-                .setContentText("Press it");
+                .setContentText("Press it!");
+
+        Notification notification = builder.build();
+
+        nm.notify(NOTIFICATION_ID,notification);
 
     }
 }
