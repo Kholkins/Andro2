@@ -154,4 +154,9 @@ public class Main2Activity extends AppCompatActivity implements SeekBar.OnSeekBa
         nm.notify(NOTIFICATION_ID,notification);
 
     }
+
+    public void goTo3Activity (View view) {
+        Intent intent = new Intent(this, FragmentActivity.class);
+        startActivity(intent);
+    }
 }
